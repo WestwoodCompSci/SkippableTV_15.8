@@ -1,5 +1,5 @@
 public class Encrypter {
-
+	
 	private static String myKey;
 
 	public Encrypter(String key)
@@ -9,7 +9,6 @@ public class Encrypter {
 
 	public String encrypt(String plainText)
 	{
-
 		String encoded = "";
 
 		for (int i = 0; i < plainText.length(); i++)
@@ -19,7 +18,6 @@ public class Encrypter {
 
 		return encoded;
 	} 
-
 
 	public String decrypt(String encoded)
 	{
