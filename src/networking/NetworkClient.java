@@ -13,7 +13,7 @@ public final class NetworkClient {
 //------------------------------------USER
 	
 	/**This is a method that the GUI will use to verify if the username and PSWD are right
-	 * @param 
+	 * @param uName - Username
 	 * @throws IllegalArgumentException 
 	 * */
 	public static String validateUser(String uName){
@@ -21,7 +21,9 @@ public final class NetworkClient {
 	}
 	
 	/**This is a method that the GUI will use to update a user's PSWD. Passwords will be encrypted
-	 * @param 
+	 * @param uName - Username 
+	 * @param oldPswd - The old Password of the User
+	 * @param newPswd - The new Password of the User
 	 * @throws IllegalArgumentException 
 	 * */
 	public static String updateUser(String uName,String oldPswd,String newPswd){
@@ -31,7 +33,8 @@ public final class NetworkClient {
 	/**This is a method that the GUI will use to request the user's profile images. 
 	 * 
 	 * Tokens are a preliminary way to verify user authenticity(may not be needed)
-	 * @param 
+	 * @param uName - Username
+	 * @param token - token of image
 	 * @throws IllegalArgumentException 
 	 * */
 	public static String requestUserPic(String uName,String token){
@@ -40,7 +43,7 @@ public final class NetworkClient {
 //---------------------------------------------------Show
 	
 	/**This is a method that the GUI will use to get a show
-	 * @param 
+	 * @param showID - Whatever we decide to use as ID
 	 * @throws IllegalArgumentException 
 	 * */
 	public static String requestShow(String showID){
