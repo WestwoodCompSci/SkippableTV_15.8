@@ -85,5 +85,7 @@ public class Episode
 	{
 		return myLinks;
 	}
-	
+public String toString(){
+	return null;//TODO:JSON the object
+}	
 }
