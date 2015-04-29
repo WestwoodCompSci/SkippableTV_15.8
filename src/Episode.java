@@ -86,4 +86,9 @@ public class Episode
 		return myLinks;
 	}
 	
+	public int getCounter()
+	{
+		return (int)myCounter;
+	}
+	
 }
