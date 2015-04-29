@@ -1,0 +1,14 @@
+Tutorial for creating API through eclipse
+
+Before a method, insert a block comment with 2 asterisks (*)
+Example:
+/**This is a method that is an example for API creation (this is the description)
+* @param paramA-the first example parameter for descriptions
+* @param paramB-use the "@param" tag to describe parameters
+* @throws IllegalArgumentException 
+* */
+public void myMethod(int paramA,String paramB){
+	//Possible IllegalArgumentException thrown from this method, so use @throws to note it
+}	 
+	 
+ 
