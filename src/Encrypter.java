@@ -1,5 +1,6 @@
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
+import java.util.Base64;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.Cipher;
@@ -30,16 +31,18 @@ public class Encrypter {
 		} 
 	}
 
-	public byte[] encrypt(String plainText)
+	public String encrypt(String plainText)
 	{		
+		//Initialize Cipher to encrypt mode
 		try {
 			myCipher.init(Cipher.ENCRYPT_MODE, myKey);
 		} catch (InvalidKeyException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		//Convert String to byte[]
 		byte[] input = plainText.getBytes();
-
+		//Initializes a byte array that will store the encrypted bytes
 		byte[] encrypted = new byte[myCipher.getOutputSize(input.length)];
 		
 		try {
@@ -52,10 +55,10 @@ public class Encrypter {
 			e.printStackTrace();
 		}
 		
-		return encrypted;
+		return Base64.getEncoder().encodeToString(encrypted);
 	} 
 
-	public String decrypt(byte[] encoded)
+	public String decrypt(String encoded)
 	{
 		try {
 			myCipher.init(Cipher.DECRYPT_MODE, myKey);
@@ -63,10 +66,12 @@ public class Encrypter {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
-		byte[] decrypted = new byte[myCipher.getOutputSize(encoded.length)];
+		
+		byte[] byteArr = Base64.getDecoder().decode(encoded);
+		
+		byte[] decrypted = new byte[myCipher.getOutputSize(byteArr.length)];
 		try {
-			decrypted =  myCipher.doFinal(encoded);
+			decrypted =  myCipher.doFinal(byteArr);
 		} catch (IllegalBlockSizeException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -93,7 +98,8 @@ public class Encrypter {
 	public static void main(String[] args)
 	{
 		Encrypter e = new Encrypter();
-		byte[] enc =  e.encrypt("Hello world");
+		String enc =  e.encrypt("Hello world");
+		System.out.println(enc);
 		System.out.println(e.decrypt(enc));
 	}
 }
