@@ -24,4 +24,5 @@ Project->generate Javadocs
 	if needed, for Javadoc Command, select yourJDKFolder/bin/javadoc.exe
 
 Refer to NetworkCLient.java for a complete example.
+Documenting is actually alot of work!
  
