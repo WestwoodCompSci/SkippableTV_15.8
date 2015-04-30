@@ -85,16 +85,16 @@ public class Episode
 	{
 		return myLinks;
 	}
-<<<<<<< HEAD
+//<<<<<<< HEAD
 public String toString(){
 	return null;//TODO:JSON the object
 }	
-=======
+//=======
 	
 	public int getCounter()
 	{
 		return (int)myCounter;
 	}
 	
->>>>>>> origin/master
+//>>>>>>> origin/master
 }
