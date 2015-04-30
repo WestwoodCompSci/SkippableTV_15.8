@@ -8,6 +8,18 @@ public final class NetworkClient {
 	
 	public static final String target="";//TODO: where is the server?
 	
+	public static final String getU="GETUSER";
+	public static final String valU="VALIDATEU";
+	public static final String updU="UPDATEU";
+	public static final String reqUP="REQUESTUPIC";
+	public static final String reqSh="REQUESTSHOW";
+	public static final String reqSe="REQUESTSEASON";
+	public static final String reqEp="REQUESTEPISODE";
+	public static final String edSh="EDITSHOW";
+	public static final String edSe="EDITSEASON";
+	public static final String edEp="EDITEPISODE";
+	
+	
 	//TODO: identify which client?
 	
 	/**This method generates the request String to be sent.
@@ -33,7 +45,7 @@ public final class NetworkClient {
 	 * @throws IllegalArgumentException 
 	 * */
 	public static String getUser(String uName){
-		return genReq("GETUSER",uName);
+		return genReq(getU,uName);
 	}
 	
 	/**This is a method that the GUI will use to verify if the username and PSWD are right
@@ -41,7 +53,7 @@ public final class NetworkClient {
 	 * @throws IllegalArgumentException 
 	 * */
 	public static String validateUser(String uName){
-		return genReq("VALIDATEU",uName);
+		return genReq(valU,uName);
 	}
 	
 	/**This is a method that the GUI will use to update a user's PSWD. Passwords will be encrypted
@@ -51,7 +63,7 @@ public final class NetworkClient {
 	 * @throws IllegalArgumentException 
 	 * */
 	public static String updateUser(String uName,String oldPswd,String newPswd){
-		return genReq("UPDATEU",uName,oldPswd,newPswd);//TODO: encrypt before sending!!!
+		return genReq(updU,uName,oldPswd,newPswd);//TODO: encrypt before sending!!!
 	}
 	
 	/**This is a method that the GUI will use to request the user's profile images. 
@@ -62,7 +74,7 @@ public final class NetworkClient {
 	 * @throws IllegalArgumentException 
 	 * */
 	public static String requestUserPic(String uName,String token){
-		return genReq("REQUESTUPIC",uName,token);
+		return genReq(reqUP,uName,token);
 	}
 //---------------------------------------------------Show
 	
@@ -71,7 +83,7 @@ public final class NetworkClient {
 	 * @throws IllegalArgumentException 
 	 * */
 	public static String requestShow(String showID){
-		return genReq("REQUESTSHOW",showID);
+		return genReq(reqSh,showID);
 	}
 
 	/**This is a method that the GUI will use to get a show's season
@@ -80,7 +92,7 @@ public final class NetworkClient {
 	 * @throws IllegalArgumentException 
 	 * */
 	public static String requestSeason(String showID,int season){
-		return genReq("REQUESTSHOW.SEASON",showID,season);
+		return genReq(reqSe,showID,season);
 	}
 	
 	/**This is a method that the GUI will use to get an episode for a show
@@ -90,7 +102,7 @@ public final class NetworkClient {
 	 * @throws IllegalArgumentException 
 	 * */
 	public static String requestEpisode(String showID,int season, int episode){
-		return genReq("REQUESTSHOW.SEASON.EP",showID,season,episode);
+		return genReq(reqEp,showID,season,episode);
 	}
 	
 	/**This is a method that the GUI will use to edit a show
@@ -98,7 +110,7 @@ public final class NetworkClient {
 	 * @throws IllegalArgumentException 
 	 * */
 	public static String editShow(String showID){
-		return genReq("EDITSHOW",showID);
+		return genReq(edSh,showID);
 	}
 	
 	/**This is a method that the GUI will use to edit a show's season
@@ -107,7 +119,7 @@ public final class NetworkClient {
 	 * @throws IllegalArgumentException 
 	 * */
 	public static String editSeason(String showID,int season){
-		return genReq("EDITSHOW",showID,season);
+		return genReq(edSe,showID,season);
 	}
 	
 	/**This is a method that the GUI will use to edit an episode
@@ -117,7 +129,7 @@ public final class NetworkClient {
 	 * @throws IllegalArgumentException 
 	 * */
 	public static String editEp(String showID,int season,int ep){
-		return genReq("EDITSHOW",showID,season,ep);
+		return genReq(edEp,showID,season,ep);
 	}
 	
 	/*/
