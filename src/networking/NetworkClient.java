@@ -3,6 +3,11 @@ package networking;
 import java.net.*;
 
 /**This is a class that will work with the GUI by generating the Strings required to request or send data.
+ * The command methods generate a string in the following format:
+ * 
+ * COMMANDTYPE+delim+extraRequiredSpecifiers+delim+specifier2...delim++lastSpecifier
+ * 
+ * The command will be interpreted by th3 NetworkBackend class
  * @author Michael Darmawan
  */
 public final class NetworkClient {
@@ -142,32 +147,35 @@ public final class NetworkClient {
 	
 	/**This is a method that the GUI will use to edit a show
 	 * @param showID - Whatever we decide to use as ID
+	 * @param showDat - The String form of the Show
 	 * @throws IllegalArgumentException - Invalid input
 	 * @return String to be sent to backEnd 
 	 * */
-	public static String editShow(String showID){
-		return genReq(edSh,showID);
+	public static String editShow(String showID,String showDat){
+		return genReq(edSh,showID,showDat);
 	}
 	
 	/**This is a method that the GUI will use to edit a show's season
 	 * @param showID - Whatever we decide to use as ID
 	 * @param season - Season number
+	 * @param sDat - The String form of the Season data
 	 * @throws IllegalArgumentException - Invalid input
 	 * @return String to be sent to backEnd  
 	 * */
-	public static String editSeason(String showID,int season){
-		return genReq(edSe,showID,season);
+	public static String editSeason(String showID,int season,String sDat){
+		return genReq(edSe,showID,season,sDat);
 	}
 	
 	/**This is a method that the GUI will use to edit an episode
 	 * @param showID - Whatever we decide to use as ID
 	 * @param season - Season number
-	 * @param ep- Episode number
+	 * @param ep - Episode number
+	 * @param epDat - The String form of the episode
 	 * @throws IllegalArgumentException - Invalid input
 	 * @return String to be sent to backEnd 
 	 * */
-	public static String editEp(String showID,int season,int ep){
-		return genReq(edEp,showID,season,ep);
+	public static String editEp(String showID,int season,int ep,String epDat){
+		return genReq(edEp,showID,season,ep,epDat);
 	}
 	
 	/*/
