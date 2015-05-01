@@ -4,6 +4,14 @@
 #     Uncommented = ignored/disallowed                                               #
 #====================================================================================#
 
+
+/networking/
+/GUI/
+/Server.class
+
+
+
+
 # Java Files
 #-------------------
 *.class
