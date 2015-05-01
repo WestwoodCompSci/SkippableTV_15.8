@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+<link href="http://daneden.github.io/animate.css/animate.min.css" rel='stylesheet' type='text/css'>
+
+
+<h1>
+  <div class="animated fadeInLeft">SKIPPABLE</div><div class="animated fadeInRight">TV</div>
+</h1>
+<p class="animated fadeInUp delay-1">PRODUCED BY 8TH BLOCK</p>
+
+
+
+<canvas id="canv">
+<head>
+<style>
+body {
+  width: 100%;
+  margin: 0;
+  overflow: hidden;
+  background: hsla(0, 5%, 15%, 1);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-image: linear-gradient(to right top, hsla(0, 10%, 5%, 0.5), hsla(0, 15%, 15%, 1));
+  background-image: -moz-linear-gradient(to right top, hsla(0, 10%, 5%, 0.5), hsla(0, 15%, 15%, 1));
+}
+
+canvas {
+  width: 100%;
+}
+html, body{
+  height: 100%;
+  font-family: 'Varela Round' sans-serif;
+  text-align: center;
+}
+h1{
+  margin-top: 5%;
+  font-size: 3rem;
+  display: inline-block;
+  
+  div{
+    position: relative;
+    float: left;
+  }
+  div:first-child{
+    color: #3498db;
+    margin-right: 1rem;
+  }
+}
+p{
+  font-size: 1.2rem;
+  color: gray;
+  text-transform: uppercase;
+}
+.delay-1{
+  @include animation-delay(1s);
+}
+
+footer{
+  position: absolute;
+  bottom: 2rem;
+  width: 100%;
+}
+</style>
+</head>
+<body>
+<script>
+window.requestAnimFrame = (function() {
+  return window.requestAnimationFrame ||
+    window.webkitRequestAnimationFrame ||
+    window.mozRequestAnimationFrame ||
+    window.oRequestAnimationFrame ||
+    window.msRequestAnimationFrame ||
+    function(callback) {
+      window.setTimeout(callback, 1000 / 60);
+    };
+})();
+var w,
+  h,
+  c = document.getElementById('canv'),
+  $ = c.getContext('2d'),
+  sq,
+  cont,
+  col_fl = 0
+s = 5;
+c.addEventListener('load', resize);
+c.addEventListener('resize', resize, false);
+
+function resize() {
+  c.width = w = window.innerWidth;
+  c.height = h = window.innerHeight;
+  c.style.position = 'absolute';
+  c.style.left = (window.innerWidth - w) *
+    .01 + 'px';
+  c.style.top = (window.innerHeight - h) *
+    .01 + 'px';
+}
+
+function ready() {
+  w = c.width = window.innerWidth;
+  h = c.height = window.innerHeight;
+
+  sq = [];
+  run();
+}
+
+function run() {
+  go();
+  window.requestAnimFrame(run, 100);
+}
+
+function draw(x, y, color) {
+  $.globalCompositeOperation = "source-over";
+  $.shadowColor = 'hsla(0,0%,0%,.5)';
+  $.shadowBlur = 5;
+  $.shaodowOffsetX = 5;
+  $.shadowOffsetY = 5;
+  $.beginPath();
+  $.fillRect(x - 40, y - 40, 110, 90);
+  $.fillStyle = color;
+  $.fill();
+}
+
+function go(e) {
+  var x = 0;
+  var y = 0;
+  x = Math.random() * w;
+  y = Math.random() * h;
+  var col = [
+    "hsl(28, 80%, 52%)",
+    "hsl(24, 100%, 41%)",
+    "hsl(6, 78%, 57%)",
+    "hsl(6, 63%, 45%)",
+    "hsl(192, 15%, 94%)",
+    "hsl(204, 8%, 76%)",
+    "hsl(184, 9%, 62%)",
+    "hsl(184, 6%, 53%)",
+    "hsl(168, 76%, 42%)",
+    "hsl(168, 76%, 36%)",
+    "hsl(145, 63%, 49%)",
+    "hsl(145, 63%, 42%)",
+    "hsl(204, 70%, 53%)",
+    "hsl(204, 64%, 44%)",
+    "hsl(283, 39%, 53%)",
+    "hsl(282, 44%, 47%)",
+    "hsl(48, 89%, 50%)",
+    "hsl(47, 90%, 51%)",
+    "hsl(210, 29%, 29%)"
+  ];
+
+  col_fl += 1;
+  if (col_fl >= 19) {
+    col_fl = 0;
+  }
+
+  var col = col[col_fl];
+  var e = {
+    bg: col,
+    x: x,
+    y: y
+  };
+  sq.unshift(e);
+  draw(x, y, col);
+  anim();
+}
+
+function anim() {
+  $.clearRect(0, 0, w, h);
+  for (i = 0; i < sq.length; i++) {
+    var q = Math.floor(Math.random() * sq.length);
+    var spX = 0;
+    var spY = 0;
+    var _x = spX
+    var _y = spY;
+    var halo = Math.PI * 2 / sq.length;
+    _x = s * Math.cos(halo * i) - sq[i].x + w / 2;
+    _y = s * Math.sin(halo * i) - sq[i].y + h / 2;
+    spX = _x / 5;
+    spY = _y / 5;
+    sq[i].x += spX;
+    sq[i].y += spY;
+    draw(sq[i].x, sq[i].y, sq[i].bg);
+  }
+  if (sq.length > s * 3) {
+    s += 5;
+  }
+
+}
+ready();
+</script>
+</body>
+</html>
