@@ -31,6 +31,11 @@ public class Encrypter {
 		} 
 	}
 
+	/**
+	 * Encrypts a String into a Base64 String.
+	 * Will encrypt to a different String every time method is run. 
+	 * Ex: encrypt("hello") ≠ encrypt("hello")
+	**/
 	public String encrypt(String plainText)
 	{		
 		//Initialize Cipher to encrypt mode
@@ -60,6 +65,9 @@ public class Encrypter {
 		return Base64.getEncoder().encodeToString(encrypted);
 	} 
 
+	 /**
+	 * Decrypts a Base64 String
+	 */
 	public String decrypt(String encoded)
 	{
 		//Initializes Cipher to decrypt mode
@@ -89,7 +97,10 @@ public class Encrypter {
 		return this.bytesToString(decrypted);
 	}
 	
-	//Converts decrypted byte array to a String
+	/**
+	 * Converts decrypted byte array to a String.
+	 * Used within decrypt()
+	 */
 	private String bytesToString(byte[] b)
 	{
 		String f = "";
