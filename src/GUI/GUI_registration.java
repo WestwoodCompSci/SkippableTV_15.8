@@ -1,5 +1,5 @@
 package GUI;
 
-public class GUI_Registration {
+public class GUI_registration {
 
 }
