@@ -2,6 +2,7 @@ package GUI;
 
 
 import javax.swing.Box;
+import javax.swing.ImageIcon;
 import javax.swing.JApplet;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -22,9 +23,9 @@ public class GUI_controller {
 	
 	JButton login = new JButton("Login");
 	JButton signUp = new JButton("Sign Up");
-	JLabel text = new JLabel("PIC HERE");
+	JLabel picture = new JLabel(new ImageIcon("H:\\SkippableTV_15.8\\smoother logo.png" ));
 	
-	box1.add(text);
+	box1.add(picture);
 	box2.add(Box.createHorizontalStrut(0));
 	box2.add(login);
 	box2.add(Box.createHorizontalStrut(100));
@@ -38,8 +39,8 @@ public class GUI_controller {
 	frame.add(applet);
 	frame.pack();
 	frame.setVisible(true);
-	
-	frame.setSize(700, 800);
+	frame.setLocation(200, 50);
+	frame.setSize(1000, 800);
 	
 	
 	
