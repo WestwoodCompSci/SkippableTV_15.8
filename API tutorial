@@ -2,13 +2,27 @@ Tutorial for creating API through eclipse
 
 Before a method, insert a block comment with 2 asterisks (*)
 Example:
+/**This is how you describe the subsequent field or method
+* /
+public int myInteger;
+
 /**This is a method that is an example for API creation (this is the description)
-* @param paramA-the first example parameter for descriptions
-* @param paramB-use the "@param" tag to describe parameters
-* @throws IllegalArgumentException 
+* anything with the '@' tag can be used to specify certain things about the method 
+* @param paramA - description of paramA
+* @param paramB - paramB is the second example parameter
+* @throws IllegalArgumentException - describe why it is thrown
+* @throws IOException - again,describe...
+* @return The method returns an integer that means... 
 * */
-public void myMethod(int paramA,String paramB){
+public int myMethod(int paramA,String paramB){
 	//Possible IllegalArgumentException thrown from this method, so use @throws to note it
 }	 
-	 
+
+After all the methods and classes are documented:
+goto the toolbar
+Project->generate Javadocs
+	if needed, for Javadoc Command, select yourJDKFolder/bin/javadoc.exe
+
+Refer to NetworkCLient.java for a complete example.
+Documenting is actually alot of work!
  
