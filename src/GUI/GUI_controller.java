@@ -1,6 +1,10 @@
 package GUI;
 
 
+import java.awt.Color;
+import java.awt.Component;
+
+import javax.swing.AbstractButton;
 import javax.swing.Box;
 import javax.swing.ImageIcon;
 import javax.swing.JApplet;
@@ -21,8 +25,8 @@ public class GUI_controller {
 	JApplet applet = new JApplet();
 	
 	
-	ButtonMod login = new ButtonMod("Login",59,89,182);
-	ButtonMod signUp = new ButtonMod("Sign Up",59,89,182);
+	JButton login = new JButton("Login");
+	JButton signUp = new JButton("Sign Up");
 	JLabel picture = new JLabel(new ImageIcon("H:\\SkippableTV_15.8\\smoother logo.png" ));
 	
 	box1.add(picture);
@@ -46,6 +50,8 @@ public class GUI_controller {
 	
 	
 	}
+	
+	
 	
 	
 	public static void main(String[] args) //the main method
