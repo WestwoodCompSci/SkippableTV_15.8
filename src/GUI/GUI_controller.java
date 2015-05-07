@@ -21,8 +21,8 @@ public class GUI_controller {
 	JApplet applet = new JApplet();
 	
 	
-	ButtonMod login = new ButtonMod("Login",59,89,182);
-	ButtonMod signUp = new ButtonMod("Sign Up",59,89,182);
+	JButton login = new JButton("Login");
+	JButton signUp = new JButton("Sign Up");
 	//
 	JLabel picture = new JLabel(new ImageIcon("H:\\SkippableTV_15.8\\smoother logo.png" ));
 	

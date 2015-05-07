@@ -9,6 +9,11 @@ public class GUI_interface {
 	JFrame frame = new JFrame();
 	
 	
+	frame.pack();
+	frame.setVisible(true);
+	
+	frame.setSize(1000, 800);
+	
 	
 	
 	
