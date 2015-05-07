@@ -1,6 +1,9 @@
 package GUI;
 
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import javax.swing.Box;
 import javax.swing.ImageIcon;
 import javax.swing.JApplet;
@@ -14,6 +17,12 @@ public class GUI_controller {
 	static GUI_controller controller;
 	public GUI_controller()
 	{
+		
+	GUI_login login = new GUI_login();	
+		
+		
+		
+		
 	JFrame frame = new JFrame();
 	Box Mainbox = Box.createVerticalBox();
 	Box box1 = Box.createHorizontalBox();
@@ -46,7 +55,22 @@ public class GUI_controller {
 	
 	
 	
+	
+login.addActionListener(new ActionListener() {
+
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+		frame.add(login.get(mainBox));
+		
+		
 	}
+		
+			
+	
+	});
+
+	}
+
 	
 	
 	public static void main(String[] args) //the main method
