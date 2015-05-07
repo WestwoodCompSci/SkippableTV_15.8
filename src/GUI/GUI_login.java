@@ -14,7 +14,7 @@ import javax.swing.SwingUtilities;
 
 public class GUI_login {
 	
-	private Box mainBox;
+	public Box mainBox;
 	
 	public GUI_login()
 	{
@@ -71,13 +71,13 @@ public class GUI_login {
 		mainBox.add(veriBox2);
 		mainBox.add(veriBox3);
 		
-		myFrame.add(mainBox);
+		//myFrame.add(mainBox);
 	
-		myFrame.pack();
-		myFrame.setVisible(true);
+		//myFrame.pack();
+		//myFrame.setVisible(true);
 		
-		myFrame.setSize(700,700);
-		mainBox.setSize(700,700);
+		//myFrame.setSize(700,700);
+		//mainBox.setSize(700,700);
 		
 		
 	}

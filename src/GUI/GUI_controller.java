@@ -15,6 +15,7 @@ import javax.swing.SwingUtilities;
 
 public class GUI_controller {
 	static GUI_controller controller;
+	static GUI_login login;
 	public GUI_controller()
 	{
 		
@@ -30,14 +31,14 @@ public class GUI_controller {
 	JApplet applet = new JApplet();
 	
 	
-	JButton login = new JButton("Login");
+	JButton loginB = new JButton("Login");
 	JButton signUp = new JButton("Sign Up");
 	//
 	JLabel picture = new JLabel(new ImageIcon("H:\\SkippableTV_15.8\\smoother logo.png" ));
 	
 	box1.add(picture);
 	box2.add(Box.createHorizontalStrut(0));
-	box2.add(login);
+	box2.add(loginB);
 	box2.add(Box.createHorizontalStrut(100));
 	box2.add(signUp);
 	
@@ -60,7 +61,8 @@ login.addActionListener(new ActionListener() {
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		frame.add(login.get(mainBox));
+		frame.remove(Mainbox);
+		frame.add(login.mainBox);
 		
 		
 	}
@@ -76,6 +78,7 @@ login.addActionListener(new ActionListener() {
 	public static void main(String[] args) //the main method
 	{
 		controller = new GUI_controller();
+		login = new GUI_login();
 	}
 
 
