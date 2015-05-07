@@ -14,8 +14,8 @@ import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 
 public class GUI_controller {
-	static GUI_controller controller;
-	static GUI_login login;
+	public static GUI_controller controller;
+	public static GUI_login login;
 	public GUI_controller()
 	{
 		
@@ -24,7 +24,7 @@ public class GUI_controller {
 		
 		
 		
-	JFrame frame = new JFrame();
+	JFrame frame1 = new JFrame();
 	Box Mainbox = Box.createVerticalBox();
 	Box box1 = Box.createHorizontalBox();
 	Box box2 = Box.createHorizontalBox();
@@ -47,22 +47,28 @@ public class GUI_controller {
 	
 	applet.add(Mainbox);
 	
-	frame.add(applet);
-	frame.pack();
-	frame.setVisible(true);
-	frame.setLocation(200, 50);
-	frame.setSize(1000, 800);
+	frame1.add(applet);
+	frame1.pack();
+	frame1.setVisible(true);
+	frame1.setLocation(200, 50);
+	frame1.setSize(1000, 800);
 	
 	
 	
 	
 	
-login.addActionListener(new ActionListener() {
+loginB.addActionListener(new ActionListener() {
 
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
-		frame.remove(Mainbox);
-		frame.add(login.mainBox);
+		
+		frame1.remove(Mainbox);
+		frame1.add(login.mainBox);
+		
+		//frame1.pack();
+		//frame1.setVisible(true);
+		frame1.setLocation(200, 50);
+		frame1.setSize(1000, 800);
 		
 		
 	}
@@ -77,8 +83,9 @@ login.addActionListener(new ActionListener() {
 	
 	public static void main(String[] args) //the main method
 	{
-		controller = new GUI_controller();
 		login = new GUI_login();
+		controller = new GUI_controller();
+		
 	}
 
 

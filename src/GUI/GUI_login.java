@@ -1,4 +1,4 @@
-
+package GUI;
 import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.Rectangle;
@@ -77,14 +77,14 @@ public class GUI_login {
 		//myFrame.setVisible(true);
 		
 		//myFrame.setSize(700,700);
-		//mainBox.setSize(700,700);
+		mainBox.setSize(1000,800);
 		
 		
 	}
 	public static void main(String[] args) 
 	{
 		SwingUtilities.invokeLater(new Runnable() {
-			public void run() { new GUI_login(); }
+			//public void run() { new GUI_login(); }
 		});
 	}
 	
