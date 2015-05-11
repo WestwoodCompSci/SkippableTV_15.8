@@ -25,6 +25,7 @@ public class GUI_controller {
 		
 		
 	JFrame frame1 = new JFrame();
+	frame1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	Box Mainbox = Box.createVerticalBox();
 	Box box1 = Box.createHorizontalBox();
 	Box box2 = Box.createHorizontalBox();
@@ -62,8 +63,9 @@ loginB.addActionListener(new ActionListener() {
 	@Override
 	public void actionPerformed(ActionEvent arg0) {
 		
-		frame1.remove(Mainbox);
-		frame1.add(login.mainBox);
+		applet.remove(Mainbox);
+		applet.add(login.mainBox);
+		
 		frame1.validate();
 		//frame1.pack();
 		//frame1.setVisible(true);
