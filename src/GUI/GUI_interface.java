@@ -16,7 +16,7 @@ public class GUI_interface {
 	frame.setVisible(true);
 	
 	frame.setSize(1000, 800);
-	
+	}
 	
 	public static void main(String[] args) //the main method
 	{
@@ -38,7 +38,7 @@ public class GUI_interface {
 	
 	
 	
-	}
+
 	
 
 }

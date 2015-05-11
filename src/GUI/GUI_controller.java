@@ -64,7 +64,7 @@ loginB.addActionListener(new ActionListener() {
 		
 		frame1.remove(Mainbox);
 		frame1.add(login.mainBox);
-		
+		frame1.validate();
 		//frame1.pack();
 		//frame1.setVisible(true);
 		frame1.setLocation(200, 50);
