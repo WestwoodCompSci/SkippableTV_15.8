@@ -4,10 +4,10 @@ import java.net.ServerSocket;
 import java.net.Socket;
 
 
-public class Server {
+public class ServerTrial {
 		final int PORT = 6588;
 		public static void main(String args[])throws IOException{
-			new Server().runServer();
+			new ServerTrial().runServer();
 		}
 		public void runServer() throws IOException{
 			ServerSocket socket = new ServerSocket(PORT);
