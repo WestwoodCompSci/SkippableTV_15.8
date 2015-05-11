@@ -5,7 +5,7 @@ import java.net.Socket;
 
 
 public class ServerTrial {
-		final int PORT = 6588;
+		final int PORT = 6588;//My dad says 8080 is a usually open port... the problem is in the firewall
 		public static void main(String args[])throws IOException{
 			new ServerTrial().runServer();
 		}

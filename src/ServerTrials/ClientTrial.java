@@ -10,13 +10,15 @@ public class ClientTrial {
 	
 	public static void main(String args[]) throws UnknownHostException, IOException {
 		JFrame frame = new JFrame();
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		JTextArea text = new JTextArea();
 		frame.add(text);
+		frame.pack();
+		frame.setVisible(true);
+		
 		Socket socket = new Socket("localhost", 6588);
 		String name = socket.getInetAddress().toString();
 		BufferedReader bR = new BufferedReader(new InputStreamReader(System.in));
-		frame.pack();
-		frame.setVisible(true);
 		while(true){
 			String input = bR.readLine();
 			System.out.println(name + ": " + input);
