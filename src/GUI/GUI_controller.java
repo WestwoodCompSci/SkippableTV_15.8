@@ -14,12 +14,15 @@ import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 
 public class GUI_controller {
-	public static GUI_controller controller;
+	public static  GUI_controller controller;
 	public static GUI_login login;
-	public GUI_controller()
+	public static  GUI_selection selection;
+	public JApplet applet;
+	
+	public JFrame frame1;
 	{
 		
-	GUI_login login = new GUI_login();	
+	
 		
 		
 		
@@ -64,7 +67,7 @@ loginB.addActionListener(new ActionListener() {
 	public void actionPerformed(ActionEvent arg0) {
 		
 		applet.remove(Mainbox);
-		applet.add(login.mainBox);
+		applet.add(login.Mainbox1);
 		
 		frame1.validate();
 		//frame1.pack();
@@ -85,8 +88,12 @@ loginB.addActionListener(new ActionListener() {
 	
 	public static void main(String[] args) //the main method
 	{
+		selection = new GUI_selection();
 		login = new GUI_login();
 		controller = new GUI_controller();
+		
+		
+		
 		
 	}
 
