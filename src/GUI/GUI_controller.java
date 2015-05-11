@@ -33,15 +33,15 @@ public class GUI_controller {
 	
 	
 	JButton loginB = new JButton("Login");
-	JButton signUp = new JButton("Sign Up");
+	//JButton signUp = new JButton("Sign Up");
 	//
 	JLabel picture = new JLabel(new ImageIcon("H:\\SkippableTV_15.8\\smoother logo.png" ));
 	
 	box1.add(picture);
-	box2.add(Box.createHorizontalStrut(0));
+	box2.add(Box.createHorizontalStrut(85));
 	box2.add(loginB);
 	box2.add(Box.createHorizontalStrut(100));
-	box2.add(signUp);
+	//box2.add(signUp);
 	
 	Mainbox.add(box1);
 	Mainbox.add(box2);

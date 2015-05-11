@@ -61,7 +61,7 @@ public class GUI_login {
 		veriBox2.add(new JTextField());
 		veriBox2.add(Box.createVerticalStrut(40));
 		
-		veriBox3.add(Box.createVerticalStrut(212));
+		veriBox3.add(Box.createVerticalStrut(140));
 		veriBox3.add(new JButton("Login!"));
 		veriBox3.add(Box.createVerticalStrut(297));
 		veriBox3.add(new JButton("Create!"));
