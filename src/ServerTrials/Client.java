@@ -9,7 +9,8 @@ import javax.swing.*;
 public class Client {
 	
 	public static void main(String args[]) throws UnknownHostException, IOException {
-		JFrame frame = new JFrame();
+		JFrame frame = new JFrame("Frame Title");
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		JTextArea text = new JTextArea();
 		frame.add(text);
 		Socket socket = new Socket("localhost", 6588);
