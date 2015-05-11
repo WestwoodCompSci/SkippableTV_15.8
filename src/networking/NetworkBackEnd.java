@@ -8,6 +8,9 @@ public class NetworkBackEnd {
 	//BackEnd b;
 	
 	//TODO:Parse request String and return appropriate object.
+	/**This is a method to interpret Protocols sent
+	 * 
+	 * */
 	public static void interpret(String cmd){
 		String[] prt=cmd.split(NetworkClient.delim);
 		if(prt[0].equals(NetworkClient.edEp)){
