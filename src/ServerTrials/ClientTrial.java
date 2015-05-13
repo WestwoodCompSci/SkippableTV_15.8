@@ -10,7 +10,7 @@ public class ClientTrial {
 	
 	public static void main(String args[]) throws UnknownHostException, IOException {
 		JFrame frame = new JFrame();
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		JTextArea text = new JTextArea();
 		frame.add(text);
 		frame.pack();

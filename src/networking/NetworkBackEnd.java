@@ -4,7 +4,7 @@ package networking;
  * @author Michael Darmawan
  *
  */
-public class NetworkBackEnd {
+public class NetworkBackEnd implements NetworkConstants{
 	//BackEnd b;
 	
 	//TODO:Parse request String and return appropriate object.
@@ -12,26 +12,26 @@ public class NetworkBackEnd {
 	 * 
 	 * */
 	public static void interpret(String cmd){
-		String[] prt=cmd.split(NetworkClient.delim);
-		if(prt[0].equals(NetworkClient.edEp)){
+		String[] prt=cmd.split(delim);
+		if(prt[0].equals(edEp)){
 			
-		}else if(prt[0].equals(NetworkClient.edSe)){
+		}else if(prt[0].equals(edSe)){
 			
-		}else if(prt[0].equals(NetworkClient.edSh)){
+		}else if(prt[0].equals(edSh)){
 			
-		}else if(prt[0].equals(NetworkClient.getU)){
+		}else if(prt[0].equals(getU)){
 			
-		}else if(prt[0].equals(NetworkClient.reqUP)){
+		}else if(prt[0].equals(reqUP)){
 			
-		}else if(prt[0].equals(NetworkClient.updU)){
+		}else if(prt[0].equals(updU)){
 			
-		}else if(prt[0].equals(NetworkClient.valU)){
+		}else if(prt[0].equals(valU)){
 			
-		}else if(prt[0].equals(NetworkClient.reqSh)){
+		}else if(prt[0].equals(reqSh)){
 			
-		}else if(prt[0].equals(NetworkClient.reqSe)){
+		}else if(prt[0].equals(reqSe)){
 			
-		}else if(prt[0].equals(NetworkClient.reqEp)){
+		}else if(prt[0].equals(reqEp)){
 			
 		}
 	}	
