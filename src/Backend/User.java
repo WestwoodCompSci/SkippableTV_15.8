@@ -9,7 +9,7 @@ public class User
 	private String myUsername;
 	private URL myPic;
 	
-	public User(String username, String mypassword, URL mypic)
+	public User(String username, URL mypic)
 	{
 		setMyUsername(username);
 		setMyPic(mypic);
