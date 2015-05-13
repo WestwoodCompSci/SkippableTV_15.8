@@ -20,6 +20,7 @@ public class GUI_controller {
 	public JApplet applet;
 	
 	public JFrame frame1;
+	public GUI_controller()
 	{
 		
 	
