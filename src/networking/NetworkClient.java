@@ -12,8 +12,6 @@ import java.net.*;
  */
 public final class NetworkClient implements NetworkConstants{
 
-	
-	
 	//TODO: identify which client?
 	
 	/**This method generates the request String to be sent.
