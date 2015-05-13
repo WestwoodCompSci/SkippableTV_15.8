@@ -1,3 +1,4 @@
+package Backend;
 import java.awt.image.BufferedImage;
 import java.net.URL;
 
@@ -7,7 +8,6 @@ public class User
 {
 	private String myUsername;
 	private URL myPic;
-	
 	
 	public User(String username, String mypassword, URL mypic)
 	{
