@@ -1,8 +1,9 @@
 import java.awt.image.BufferedImage;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 
-public class Season {
+public class Season implements Serializable {
 	private ArrayList<Episode> mySeason;
 	private final BufferedImage myPic;
 	private String mySummary;

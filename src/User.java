@@ -1,9 +1,9 @@
-import java.awt.image.BufferedImage;
+import java.io.Serializable;
 import java.net.URL;
 
 
 
-public class User 
+public class User implements Serializable
 {
 	private String myUsername;
 	private URL myPic;

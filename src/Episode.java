@@ -1,8 +1,9 @@
 import java.awt.image.BufferedImage;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 
-public class Episode
+public class Episode implements Serializable 
 {
 	private final BufferedImage myPic;
 	private final String myTitle;

@@ -1,7 +1,8 @@
+import java.io.Serializable;
 import java.util.ArrayList;
 
 
-public class Show
+public class Show implements Serializable
 {
 	private final String myName;
 	private ArrayList<Season> mySeasons;
