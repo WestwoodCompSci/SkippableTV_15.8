@@ -1,20 +1,18 @@
 import java.awt.image.BufferedImage;
+import java.net.URL;
 
 
 
 public class User 
 {
 	private String myUsername;
-	private String myPassword;
-	private BufferedImage myPic;
+	private URL myPic;
 	
 	
-	public User(String username, String mypassword, BufferedImage mypic)
+	public User(String username, String mypassword, URL mypic)
 	{
 		setMyUsername(username);
-		setMyPassword(mypassword);
 		setMyPic(mypic);
-		
 	}
 	
 	public String getMyUsername() 
@@ -26,24 +24,13 @@ public class User
 	{
 		this.myUsername = myUsername;
 	}
-
 	
-	public String getMyPassword() {
-		return myPassword;
-	}
-
-	public void setMyPassword(String myPassword) 
-	{
-		this.myPassword = myPassword;
-	}
-
-	
-	public BufferedImage getMyPic() 
+	public URL getMyPic() 
 	{
 		return myPic;
 	}
 	
-	public void setMyPic(BufferedImage myPic) 
+	public void setMyPic(URL myPic) 
 	{
 		this.myPic = myPic;
 	}
