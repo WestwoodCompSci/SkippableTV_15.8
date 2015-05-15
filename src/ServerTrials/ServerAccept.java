@@ -20,7 +20,8 @@ public class ServerAccept extends Thread implements Closeable{
 			Socket socket2;
 			try {
 				socket2 = socket.accept();
-				new ServerThread(socket2).start();
+				new ConnectionHandeler(socket2).start();
+		
 			}
 			catch (SocketTimeoutException e) {} 
 			catch (IOException e) {e.printStackTrace();}

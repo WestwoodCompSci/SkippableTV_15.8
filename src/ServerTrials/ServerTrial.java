@@ -17,4 +17,12 @@ public class ServerTrial {
 			ServerAccept acc = new ServerAccept(socket);
 			acc.start();
 		}
+		
+		public void sendMessage(){
+			
+			
+			
+		}
+		
+		
 	}
