@@ -15,6 +15,7 @@ public class ServerTrial {
 			ServerSocket socket = new ServerSocket(PORT);
 			socket.setSoTimeout(1000);
 			ServerAccept acc = new ServerAccept(socket);
+			
 			acc.start();
 		}
 	}
