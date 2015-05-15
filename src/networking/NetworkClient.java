@@ -4,7 +4,7 @@ import java.net.*;
 
 /**This is a class that will work with the GUI by generating the Strings required to request or send data.
  * The command methods generate a string in the following format:
- * 
+ * TODO:Edit format to send objects
  * COMMANDTYPE+delim+extraRequiredSpecifiers+delim+specifier2...delim++lastSpecifier
  * 
  * The command will be interpreted by th3 NetworkBackend class

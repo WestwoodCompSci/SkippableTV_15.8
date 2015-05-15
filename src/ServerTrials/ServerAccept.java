@@ -18,20 +18,18 @@ public class ServerAccept extends Thread implements Closeable{
 		
 		while(p){
 			Socket socket2;
-			try {
+			try 
+			{
 				socket2 = socket.accept();
 				new ConnectionHandeler(socket2).start();
 		
 			}
-			catch (SocketTimeoutException e) {} 
+			catch (SocketTimeoutException e) {System.out.println("Socket Timed Out");} 
 			catch (IOException e) {e.printStackTrace();}
 		
 		
 		}
 	}
-	
-	
-	
 	
 	@Override
 	public void close(){
