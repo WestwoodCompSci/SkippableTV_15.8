@@ -1,5 +1,6 @@
 package DATABASEISIMPORTANT;
 
+import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -8,6 +9,8 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ArrayList;
+
+import javax.imageio.ImageIO;
 
 import Backend.*;
 
@@ -67,19 +70,29 @@ public class Database
 	 * @return
 	 */
 
-	public boolean createUser(User newUser, String password)
+	public boolean createUser(User newUser, String password, BufferedImage imago, String imageType)
 	{
-		try {
-			(new File(Database.userFolder + File.pathSeparator + newUser.getMyUsername())).mkdir();
-			userDirectory = (Database.userFolder + File.pathSeparator + newUser.getMyUsername());
+		
+		try 
+		{
+			
+			String userDirectory = (Database.userFolder + File.pathSeparator + newUser.getMyUsername());
+			
+			(new File(userDirectory)).mkdir();
+			
 			BufferedWriter b = new BufferedWriter(new FileWriter(userDirectory + File.pathSeparator + "pswd.txt"));
+			
 			b.write(password);
 			b.close();
-			BufferedWriter d = new BufferedWriter(new FileWriter(userDirectory + File.pathSeparator + ".txt"));
-			d.write(newUser.getMyUsername() + "|||" + newUser.getMyPic());
-			d.close();
+			
+			ImageIO.write(imago, imageType, new File(userDirectory + File.pathSeparator + "profile" + imageType));
+			
 			return true;
-		} catch (IOException e) {
+			
+		} 
+		
+		catch (IOException e) 
+		{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
@@ -87,12 +100,50 @@ public class Database
 		return false;
 
 	}
+	
+	public boolean createUser(User newUser, String password)
+	{
+		
+		try 
+		{
+		
+			return createUser(newUser, password, ImageIO.read(new File("brian.jpg")), ".jpg");
+		
+		}
+		
+		catch (Exception e) { return false; }
 
+	}
+
+	public boolean updateUser(User updated, String password, BufferedImage profile, String imageType)
+	{
+		
+		deleteUser(updated.getMyUsername(), password);
+		
+		try 
+		{
+		
+			createUser(updated, password, profile, imageType);
+		
+		}
+		
+		catch (Exception e) { }
+		
+		return false;
+
+	}
+	
 	public boolean updateUser(User updated, String password)
 	{
-		deleteUser(updated.getMyUsername(), password);
-		createUser(updated, password);
-		return false;
+		
+		try
+		{
+			
+			return updateUser(updated, password, ImageIO.read(new File("brian.jpg")), ".jpg");
+			
+		}
+		
+		catch (Exception e) { return false; }
 
 	}
 
