@@ -14,7 +14,7 @@ public class User
 	private ArrayList<Show> myShows;
 	
 	
-	public User(String username, String mypassword, URL mypic)
+	public User(String username, URL mypic)
 	{
 		setMyUsername(username);
 		setMyPic(mypic);
