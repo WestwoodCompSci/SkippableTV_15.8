@@ -7,11 +7,13 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.Socket;
 
+import javax.swing.JFrame;
 
-public class ServerThread extends Thread implements Closeable{
+
+public class ConnectionHandeler extends Thread implements Closeable{
 	Socket socket;
 	boolean p = true;
-	ServerThread(Socket socket){
+	ConnectionHandeler(Socket socket){
 		this.socket = socket;
 	}
 	public void run(){
@@ -21,13 +23,16 @@ public class ServerThread extends Thread implements Closeable{
 			while(p){
 				if(bR.ready()){
 					m = bR.readLine();
-					System.out.println("incoming client message: " + m);
+					System.out.println("Client : " + socket.getInetAddress() + " Message: " + m);
+					if(m.equals(JFrame.EXIT_ON_CLOSE)){
+						bR.close();
+						this.close();
+					}
 				}
+
+					
 			}
-			//bR.close();
-		}catch(IOException e){
-			e.printStackTrace();
-		}
+			}catch(IOException e){	e.printStackTrace();	}
 	}
 	@Override
 	public void close(){

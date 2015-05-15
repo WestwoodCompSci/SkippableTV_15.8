@@ -1,6 +1,9 @@
 package Backend;
+
+
 import java.awt.image.BufferedImage;
 import java.net.URL;
+import java.util.ArrayList;
 
 
 
@@ -8,8 +11,10 @@ public class User
 {
 	private String myUsername;
 	private URL myPic;
+	private ArrayList<Show> myShows;
 	
-	public User(String username, URL mypic)
+	
+	public User(String username, String mypassword, URL mypic)
 	{
 		setMyUsername(username);
 		setMyPic(mypic);
@@ -35,5 +40,19 @@ public class User
 		this.myPic = myPic;
 	}
 	
-
+	public ArrayList<Show> getShows(){
+		return myShows;
+	}
+	
+	public void addShow(Show s){
+		myShows.add(s);
+	}
+	
+	public void removeShow(Show s){
+		if(myShows.contains(s)){
+			myShows.remove(s);
+		}
+	}
+	
+	
 }

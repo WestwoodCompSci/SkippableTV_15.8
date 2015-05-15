@@ -18,4 +18,12 @@ public class ServerTrial {
 			
 			acc.start();
 		}
+		
+		public void sendMessage(){
+			
+			
+			
+		}
+		
+		
 	}
