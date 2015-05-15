@@ -1,12 +1,16 @@
 package ServerTrials;
+
+
 import java.io.BufferedReader;
+import java.io.Closeable;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.Socket;
 
 
-public class ServerThread extends Thread {
+public class ServerThread extends Thread implements Closeable{
 	Socket socket;
+	boolean p = true;
 	ServerThread(Socket socket){
 		this.socket = socket;
 	}
@@ -14,50 +18,19 @@ public class ServerThread extends Thread {
 		try{
 			String m = null;
 			BufferedReader bR = new BufferedReader(new InputStreamReader(socket.getInputStream()));
-			while((m = bR.readLine()) != null)
-				System.out.println("incoming client message: " + m);
+			while(p){
+				if(bR.ready()){
+					m = bR.readLine();
+					System.out.println("incoming client message: " + m);
+				}
+			}
+			//bR.close();
 		}catch(IOException e){
 			e.printStackTrace();
 		}
 	}
-
-	public ServerThread() {
-		// TODO Auto-generated constructor stub
+	@Override
+	public void close(){
+		p= false;
 	}
-
-	public ServerThread(Runnable arg0) {
-		super(arg0);
-		// TODO Auto-generated constructor stub
-	}
-
-	public ServerThread(String arg0) {
-		super(arg0);
-		// TODO Auto-generated constructor stub
-	}
-
-	public ServerThread(ThreadGroup arg0, Runnable arg1) {
-		super(arg0, arg1);
-		// TODO Auto-generated constructor stub
-	}
-
-	public ServerThread(ThreadGroup arg0, String arg1) {
-		super(arg0, arg1);
-		// TODO Auto-generated constructor stub
-	}
-
-	public ServerThread(Runnable arg0, String arg1) {
-		super(arg0, arg1);
-		// TODO Auto-generated constructor stub
-	}
-
-	public ServerThread(ThreadGroup arg0, Runnable arg1, String arg2) {
-		super(arg0, arg1, arg2);
-		// TODO Auto-generated constructor stub
-	}
-
-	public ServerThread(ThreadGroup arg0, Runnable arg1, String arg2, long arg3) {
-		super(arg0, arg1, arg2, arg3);
-		// TODO Auto-generated constructor stub
-	}
-
 }

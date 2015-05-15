@@ -14,6 +14,8 @@ import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.SwingUtilities;
 
+import networking.NetworkClient;
+
 public class GUI_login {
 	
 	public Box Mainbox1;
@@ -87,6 +89,10 @@ public class GUI_login {
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
+				
+				//send(NetworkClient.validateUser(uName));	//
+				
+				
 				
 				GUI_controller.controller.applet.remove(GUI_controller.login.Mainbox1);
 				GUI_controller.controller.applet.add(GUI_controller.selection.Mainbox2);
