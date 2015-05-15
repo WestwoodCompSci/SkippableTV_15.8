@@ -6,12 +6,17 @@ public class Season {
 	private ArrayList<Episode> mySeason;
 	private final BufferedImage myPic;
 	private String mySummary;
+	private int myProgress;
+	private int myCounter;
 	
 	public Season(ArrayList<Episode> myseason, BufferedImage mypic, String mysummary )
 	{
 		mySeason = myseason;
 		myPic = mypic;
 		mySummary = mysummary;
+		myProgress = 0;
+		myCounter = 0;
+		
 		
 	}
 
@@ -49,9 +54,24 @@ public class Season {
 	{
 		mySummary = mySummary + " " + summaryaddition;
 	}
+	public int returnProgress(){
+		return myProgress;
+	}
 	
-	
-	
+	public Episode nextEpisode(){
+		if(myCounter + 1 == mySeason.size()){
+			myProgress++;
+			return mySeason.get(++myCounter);
+		}
+		return null;
+	}
+	public Episode backEpisode(){
+		if(myCounter-1 >= 0){
+			myProgress--;
+			return mySeason.get(--myCounter);
+		}	
+		return null;
+	}
 	
 
 }

@@ -28,12 +28,12 @@ public class GUI_controller {
 		
 		
 		
-	JFrame frame1 = new JFrame();
+	 frame1 = new JFrame();
 	frame1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	Box Mainbox = Box.createVerticalBox();
 	Box box1 = Box.createHorizontalBox();
 	Box box2 = Box.createHorizontalBox();
-	JApplet applet = new JApplet();
+	applet = new JApplet();
 	
 	
 	JButton loginB = new JButton("Login");
@@ -62,26 +62,26 @@ public class GUI_controller {
 	
 	
 	
-loginB.addActionListener(new ActionListener() {
-
-	@Override
-	public void actionPerformed(ActionEvent arg0) {
-		
-		applet.remove(Mainbox);
-		applet.add(login.Mainbox1);
-		
-		frame1.validate();
-		//frame1.pack();
-		//frame1.setVisible(true);
-		frame1.setLocation(200, 50);
-		frame1.setSize(1000, 800);
-		
-		
-	}
-		
-			
+	loginB.addActionListener(new ActionListener() {
 	
-	});
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+			
+			applet.remove(Mainbox);
+			applet.add(login.Mainbox1);
+			
+			frame1.validate();
+			//frame1.pack();
+			//frame1.setVisible(true);
+			frame1.setLocation(200, 50);
+			frame1.setSize(1000, 800);
+			
+			
+		}
+			
+				
+		
+		});
 
 	}
 

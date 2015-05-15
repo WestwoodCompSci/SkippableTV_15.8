@@ -94,14 +94,15 @@ public class GUI_login {
 				
 				
 				
-				GUI_controller.controller.applet.remove(GUI_controller.login.Mainbox1);
+				GUI_controller.controller.applet.remove(Mainbox1);
 				GUI_controller.controller.applet.add(GUI_controller.selection.Mainbox2);
 				
 				GUI_controller.controller.frame1.validate();
+				GUI_controller.controller.applet.validate();
 				//frame1.pack();
 				//frame1.setVisible(true);
-				GUI_controller.controller.frame1.setLocation(200, 50);
-				GUI_controller.controller.frame1.setSize(1000, 800);
+				//GUI_controller.controller.frame1.setLocation(200, 50);
+				//GUI_controller.controller.frame1.setSize(1000, 800);
 				
 				
 			}
