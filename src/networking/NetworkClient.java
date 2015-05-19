@@ -4,7 +4,9 @@ import java.net.*;
 
 /**This is a class that will work with the GUI by generating the Strings required to request or send data.
  * The command methods generate a string in the following format:
+ * 
  * TODO:Edit format to send objects
+ * 
  * COMMANDTYPE+delim+extraRequiredSpecifiers+delim+specifier2...delim++lastSpecifier
  * 
  * The command will be interpreted by th3 NetworkBackend class
@@ -18,7 +20,7 @@ public final class NetworkClient implements NetworkConstants{
 	
 	/**This method generates the request String to be sent.
 	 * It is used by all the other methods below
-	 * @param requestCode - the codes the class uses. Should make static final variables. TODO:
+	 * @param requestCode - the codes the class uses.
 	 * @param args - any other arguments needed to specify the requests
 	 * */
 	private static String genReq(String requestCode, Object ... args){
