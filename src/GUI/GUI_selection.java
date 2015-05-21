@@ -1,6 +1,8 @@
 package GUI;
 
 import java.awt.Component;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.Box;
@@ -12,11 +14,12 @@ import javax.swing.SwingUtilities;
 
 public class GUI_selection {
 	public Box Mainbox2;
+	public JComboBox <String> select;
 	public GUI_selection()
 	{
 		//JFrame frame1 = new JFrame();
 		//frame1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		 Mainbox2 = Box.createVerticalBox();
+		Mainbox2 = Box.createVerticalBox();
 		Box box1 = Box.createHorizontalBox();
 		Box box2 = Box.createHorizontalBox();
 		
@@ -29,7 +32,7 @@ public class GUI_selection {
 		Mainbox2.add(box2);
 		
 		ArrayList <String>select0 = new ArrayList<String>();
-		select0.add("Breaking Bad");
+		
 		select0.add("The Walking Dead");
 		String [] select00 = new String [select0.size()];
 		for (int i = 0; i < select0.size();i++)
@@ -37,7 +40,8 @@ public class GUI_selection {
 			select00[i] =  select0.get(i);
 		}
 		
-		JComboBox <String> select = new JComboBox<String>(select00);
+		 select = new JComboBox<String>(select00);
+		 
 		box2.add(select);
 		box1.add(Box.createHorizontalStrut(75));
 		box1.add(continue0);
@@ -53,6 +57,54 @@ public class GUI_selection {
 		
 		
 		
-	}
+		continue0.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				
+				GUI_controller.controller.applet.remove(Mainbox2);
+				GUI_controller.controller.applet.add(GUI_controller.interface11.Mainbox3);
+				
+				GUI_controller.controller.frame1.validate();
+				GUI_controller.controller.applet.validate();
+				
+				
+				
+			}
+				
+					
+			
+			});
+
+		
+
+		back.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				
+				GUI_controller.controller.applet.remove(Mainbox2);
+				GUI_controller.controller.applet.add(GUI_controller.login.Mainbox1);
+				
+				GUI_controller.controller.frame1.validate();
+				GUI_controller.controller.applet.validate();
+				
+				
+				
+			}
+				
+					
+			
+			});
+
+		
 	
-}
+
+		
+		
+		
+		
+		
+	
+	
+	}}

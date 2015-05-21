@@ -17,7 +17,9 @@ public class GUI_controller {
 	public static  GUI_controller controller;
 	public static GUI_login login;
 	public static  GUI_selection selection;
+	public static GUI_interface interface11;
 	public JApplet applet;
+	
 	
 	public JFrame frame1;
 	public GUI_controller()
@@ -89,9 +91,11 @@ public class GUI_controller {
 	
 	public static void main(String[] args) //the main method
 	{
+		interface11 = new GUI_interface();
 		selection = new GUI_selection();
 		login = new GUI_login();
 		controller = new GUI_controller();
+		
 		
 		
 		
