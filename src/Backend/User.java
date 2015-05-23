@@ -1,13 +1,12 @@
 package Backend;
 
 
-import java.awt.image.BufferedImage;
+import java.io.Serializable;
 import java.net.URL;
 import java.util.ArrayList;
 
 
-
-public class User 
+public class User extends JSONize implements Serializable
 {
 	private String myUsername;
 	private URL myPic;
@@ -52,6 +51,24 @@ public class User
 		if(myShows.contains(s)){
 			myShows.remove(s);
 		}
+	}
+
+	@Override
+	public String toJSON() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void fromJSON(String s) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	protected String getJSONName() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	

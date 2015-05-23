@@ -1,6 +1,5 @@
 package networking;
 
-import java.net.*;
 
 /**This is a class that will work with the GUI by generating the Strings required to request or send data.
  * The command methods generate a string in the following format:
@@ -14,10 +13,10 @@ import java.net.*;
  */
 public final class NetworkClient implements NetworkConstants{
 
-	
-	
+
+
 	//TODO: identify which client?
-	
+
 	/**This method generates the request String to be sent.
 	 * It is used by all the other methods below
 	 * @param requestCode - the codes the class uses.
@@ -26,16 +25,17 @@ public final class NetworkClient implements NetworkConstants{
 	private static String genReq(String requestCode, Object ... args){
 		String s=requestCode;
 		for(Object x:args){
-			s+=delim+x.toString();
+			//s+=delim+(x instanceof Serializable?genString((Serializable)x):x.toString());
+			s+=x.toString();
 		}
 		return s;
 	}
-	
+
 	/*For each of the Below methods, these methods will return a string 
 	 * that should be sent to the backend for processing the request
 	 * */
-//------------------------------------USER
-	
+	//------------------------------------USER
+
 	/**This is a method that the GUI will use to get a user's public info
 	 * @param uName - Username
 	 * @throws IllegalArgumentException - Invalid input
@@ -44,7 +44,7 @@ public final class NetworkClient implements NetworkConstants{
 	public static String getUser(String uName){
 		return genReq(getU,uName);
 	}
-	
+
 	/**This is a method that the GUI will use to verify if the username and PSWD are right
 	 * @param uName - Username
 	 * @throws IllegalArgumentException - Invalid input
@@ -53,7 +53,7 @@ public final class NetworkClient implements NetworkConstants{
 	public static String validateUser(String uName){
 		return genReq(valU,uName);
 	}
-	
+
 	/**This is a method that the GUI will use to update a user's PSWD. Passwords will be encrypted
 	 * @param uName - Username 
 	 * @param oldPswd - The old Password of the User
@@ -64,7 +64,7 @@ public final class NetworkClient implements NetworkConstants{
 	public static String updateUser(String uName,String oldPswd,String newPswd){
 		return genReq(updU,uName,oldPswd,newPswd);//TODO: encrypt before sending!!!
 	}
-	
+
 	/**This is a method that the GUI will use to request the user's profile images. 
 	 * 
 	 * Tokens are a preliminary way to verify user authenticity(may not be needed)
@@ -76,8 +76,8 @@ public final class NetworkClient implements NetworkConstants{
 	public static String requestUserPic(String uName,String token){
 		return genReq(reqUP,uName,token);
 	}
-//---------------------------------------------------Show
-	
+	//---------------------------------------------------Show
+
 	/**This is a method that the GUI will use to get a show
 	 * @param showID - Whatever we decide to use as ID
 	 * @throws IllegalArgumentException - Invalid input
@@ -96,7 +96,7 @@ public final class NetworkClient implements NetworkConstants{
 	public static String requestSeason(String showID,int season){
 		return genReq(reqSe,showID,season);
 	}
-	
+
 	/**This is a method that the GUI will use to get an episode for a show
 	 * @param showID - Whatever we decide to use as ID
 	 * @param season - Season number
@@ -107,7 +107,7 @@ public final class NetworkClient implements NetworkConstants{
 	public static String requestEpisode(String showID,int season, int episode){
 		return genReq(reqEp,showID,season,episode);
 	}
-	
+
 	/**This is a method that the GUI will use to edit a show
 	 * @param showID - Whatever we decide to use as ID
 	 * @param showDat - The String form of the Show
@@ -117,7 +117,7 @@ public final class NetworkClient implements NetworkConstants{
 	public static String editShow(String showID,String showDat){
 		return genReq(edSh,showID,showDat);
 	}
-	
+
 	/**This is a method that the GUI will use to edit a show's season
 	 * @param showID - Whatever we decide to use as ID
 	 * @param season - Season number
@@ -128,7 +128,7 @@ public final class NetworkClient implements NetworkConstants{
 	public static String editSeason(String showID,int season,String sDat){
 		return genReq(edSe,showID,season,sDat);
 	}
-	
+
 	/**This is a method that the GUI will use to edit an episode
 	 * @param showID - Whatever we decide to use as ID
 	 * @param season - Season number
@@ -140,11 +140,78 @@ public final class NetworkClient implements NetworkConstants{
 	public static String editEp(String showID,int season,int ep,String epDat){
 		return genReq(edEp,showID,season,ep,epDat);
 	}
-	
+
+
+
 	/*/
 	public static void main(String[]args){
 		System.out.println(genReq("TEST","Part1",1));
 	}
 	//*/
-	
+	/*/
+	private static String genObjString(Serializable s){
+		String out="{";
+		if(s instanceof Show){
+			Show z=(Show)s;
+			//out+= z.getName();
+			out+=genObjField("myName",z.getName())+",";
+			out+="MySeasons:[";
+			for(Season x:z.getSeasons()){
+				out+=genObjString(x)+",";
+			}out=out.substring(0,out.length()-1)+"],";
+			out+=genObjField("ClassName",z.getClass().getName());			
+		}else if(s instanceof Season){
+			Season z=(Season)s;
+			out+=genObjField("mySummary",z.getMySummary())+",";
+			out+=genObjField("myProgress",z.returnProgress()+"");
+			out+=genObjField("myCounter",z.getMyCounter()+"");
+			//Picture?
+			out+="myEpisodes:[";
+			for(Episode x:z.getMySeason()){
+				out+=genObjString(x)+",";
+			}out=out.substring(0,out.length()-1)+"],";
+			out+=genObjField("ClassName",z.getClass().getName());
+		}else if(s instanceof Episode){
+			Episode z=(Episode)s;
+			out+=genObjField("myTitle","");
+			out+=genObjField("myLength","");
+			out+=genObjField("mySummary","");
+			//pic?
+			out+=genObjField("myRating","");
+			out+="myComments:[";
+			for(String x:z.getMyComments()){
+				out+=x+",";
+			}out=out.substring(0,out.length()-1)+"],";
+			out+="myLinks:[";
+			for(String x:z.getMyLinks()){
+				out+=x+",";
+			}out=out.substring(0,out.length()-1)+"],";
+			out+=genObjField("ClassName",z.getClass().getName());
+		}else if(s instanceof User){
+			User z=(User)s;
+			//pic?
+			out+=genObjField("myUsername",z.getMyUsername());
+			out+="myShows:[";
+			for(Show x:z.getShows()){
+				out+=genObjString(x)+",";
+			}out=out.substring(0,out.length()-1)+"],";
+			out+=genObjField("ClassName",z.getClass().getName());
+		}
+		out+="}";
+		return out;
+	}
+	private static String genObjField(String fieldName,String value){
+		return fieldName+":"+value;
+	}
+
+	//*/
+	private static String sanitize(String s){
+
+		return s;
+	}
+	private static String desanitize(String s){
+		return s.replaceAll("[^|]|[^|]","").replaceAll("||","|");
+
+	}
+
 }
