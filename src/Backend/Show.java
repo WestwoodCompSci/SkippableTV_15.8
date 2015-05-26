@@ -33,8 +33,7 @@ public class Show extends JSONize implements Serializable
 
 	@Override
 	public void fromJSON(String s) {
-		
-		
+		return;		
 	}
 
 	@Override
