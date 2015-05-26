@@ -41,7 +41,7 @@ public class GUI_controller {
 	JButton loginB = new JButton("Login");
 	//JButton signUp = new JButton("Sign Up");
 	//
-	JLabel picture = new JLabel(new ImageIcon("H:\\SkippableTV_15.8\\smoother logo.png" ));
+	JLabel picture = new JLabel(new ImageIcon("smoother logo.png" ));
 	
 	box1.add(picture);
 	box2.add(Box.createHorizontalStrut(85));
