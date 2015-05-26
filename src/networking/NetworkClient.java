@@ -203,8 +203,8 @@ public final class NetworkClient implements NetworkConstants{
 	private static String genObjField(String fieldName,String value){
 		return fieldName+":"+value;
 	}
-
 	//*/
+	/*/
 	private static String sanitize(String s){
 
 		return s;
@@ -213,5 +213,6 @@ public final class NetworkClient implements NetworkConstants{
 		return s.replaceAll("[^|]|[^|]","").replaceAll("||","|");
 
 	}
+	//*/
 
 }
